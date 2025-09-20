@@ -12,14 +12,14 @@ class DeviceBrightnessModule(private val reactCtx: ReactApplicationContext)
 
   @ReactMethod
   fun setBrightnessLevel(level: Double, promise: Promise) {
-    val activity: Activity? = currentActivity
+    val activity: Activity? = reactCtx.currentActivity
     if (activity == null) {
-      promise.reject("E_NO_ACTIVITY", "No current Activity found")
+      promise.resolve(null)
       return
     }
 
     val brightness: Float = when {
-      level == -1.0 -> WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE // reset a sistema
+      level == -1.0 -> WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE
       level < 0.0 || level > 1.0 -> {
         promise.reject("E_RANGE", "Brightness must be between 0 and 1 (or -1 to reset on Android)")
         return
@@ -37,9 +37,9 @@ class DeviceBrightnessModule(private val reactCtx: ReactApplicationContext)
 
   @ReactMethod
   fun getBrightnessLevel(promise: Promise) {
-    val activity: Activity? = currentActivity
+    val activity: Activity? = reactCtx.currentActivity
     if (activity == null) {
-      promise.reject("E_NO_ACTIVITY", "No current Activity found")
+      promise.resolve(getSystemBrightnessInternal())
       return
     }
     val lp = activity.window.attributes
@@ -61,9 +61,8 @@ class DeviceBrightnessModule(private val reactCtx: ReactApplicationContext)
   }
 
   private fun getSystemBrightnessInternal(): Double {
-    val cr = reactCtx.contentResolver
     val raw = Settings.System.getInt(
-      cr,
+      reactCtx.contentResolver,
       Settings.System.SCREEN_BRIGHTNESS,
       127
     )

@@ -1,6 +1,6 @@
 {
   "name": "@noemec/react-native-brightness",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Control de brillo para React Native (Android / iOS)",
   "license": "MIT",
   "repository": {
@@ -19,6 +19,7 @@
     "android",
     "ios",
     "react-native.config.js",
+    "noemec-react-native-brightness.podspec",
     "LICENSE",
     "README.md"
   ],
