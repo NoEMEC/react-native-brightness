@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+  namespace "com.noemec.brightness"
+  compileSdk 35
+
+  defaultConfig {
+    minSdk 23
+    targetSdk 35
+    consumerProguardFiles 'consumer-rules.pro'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  kotlinOptions {
+    jvmTarget = '17'
+  }
+}
+
+dependencies {
+  compileOnly 'com.facebook.react:react-android'
+  implementation 'androidx.annotation:annotation:1.7.1'
+}
