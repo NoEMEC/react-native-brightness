@@ -22,7 +22,7 @@ android/build/
 *.apk
 *.aab
 
-# iOS (para futuro soporte)
+# iOS
 ios/build/
 ios/DerivedData/
 ios/Pods/

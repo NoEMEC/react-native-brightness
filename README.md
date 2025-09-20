@@ -1,17 +1,17 @@
 # @noemec/react-native-brightness
 
-Control de brillo para React Native (Android)
+Control de brillo para React Native (Android / iOS)
 
-Una librería nativa para React Native que permite controlar el brillo de la pantalla en dispositivos Android.
+Una librería nativa para React Native que permite controlar el brillo de la pantalla en dispositivos Android e iOS.
 
 ## Características
 
 - Control del nivel de brillo de la pantalla
 - Obtener el nivel actual de brillo de la pantalla
-- Obtener el nivel de brillo del sistema
-- Resetear el brillo al valor del sistema
+- Obtener el nivel de brillo del sistema (Android)
+- Resetear el brillo al valor del sistema (Android)
 - Soporte para React Native 0.72+
-- Solo Android (iOS no soportado actualmente)
+- Compatible con Android e iOS
 
 ## Instalación
 
@@ -29,6 +29,12 @@ yarn add @noemec/react-native-brightness
 
 Para React Native 0.60 y superior, la librería se enlaza automáticamente. Solo necesitas:
 
+```bash
+cd ios && pod install && cd ..
+npx react-native run-ios
+```
+
+Para Android:
 ```bash
 cd android && ./gradlew clean && cd .. && npx react-native run-android
 ```
@@ -59,6 +65,8 @@ Establece el nivel de brillo de la pantalla.
 
 **Parámetros:**
 - `level` (number): Nivel de brillo entre 0.0 (mínimo) y 1.0 (máximo). En Android, también acepta -1 para resetear al valor del sistema.
+
+**Nota:** El valor -1 para resetear solo funciona en Android. En iOS solo acepta valores entre 0.0 y 1.0.
 
 **Ejemplo:**
 ```typescript
@@ -111,7 +119,8 @@ try {
 
 ## Limitaciones
 
-- **Solo Android**: Esta librería actualmente solo soporta Android. iOS no está soportado.
+- **getSystemBrightnessLevel**: Esta función solo está disponible en Android.
+- **Reset de brillo (valor -1)**: Solo disponible en Android. En iOS usar valores entre 0.0 y 1.0.
 - **Permisos**: No requiere permisos especiales.
 - **Expo**: No es compatible con Expo Managed Workflow. Requiere React Native CLI o Expo Bare Workflow.
 
@@ -119,8 +128,8 @@ try {
 
 - React Native >= 0.72
 - React >= 18
-- Android SDK 23+
-- Java 17
+- **Android**: SDK 23+, Java 17
+- **iOS**: iOS 13.4+, Xcode 12+
 
 ## Contribuir
 
@@ -134,11 +143,12 @@ MIT
 
 **Jose Altamar**
 - Email: joralmopro@gmail.com
-- Website: https://noemec.com
+- Website: https://noemec.net
 
 ## Changelog
 
 ### 0.1.0
 - Versión inicial
-- Soporte básico para control de brillo en Android
-- Funciones para establecer, obtener y resetear brillo
+- Soporte para control de brillo en Android e iOS
+- Funciones para establecer y obtener brillo
+- Función para obtener brillo del sistema (solo Android)

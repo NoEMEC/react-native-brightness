@@ -4,25 +4,25 @@ Gracias por tu interés en contribuir a @noemec/react-native-brightness. Las con
 
 ## Estado del Proyecto
 
-Actualmente, esta librería **solo soporta Android**. El soporte para iOS aún no está disponible.
+Esta librería actualmente **soporta Android e iOS**. Ambas plataformas están implementadas y funcionando.
 
 ## Contribuciones Deseadas
 
 ### Alta Prioridad
 
-1. **Soporte para iOS**: Esta es la contribución más importante que necesitamos. Si tienes experiencia con desarrollo nativo de iOS y React Native, tu ayuda sería invaluable.
+1. **Pruebas**: Agregar pruebas unitarias y de integración para mejorar la confiabilidad de la librería en ambas plataformas.
 
-2. **Pruebas**: Agregar pruebas unitarias y de integración para mejorar la confiabilidad de la librería.
+2. **Documentación**: Mejorar la documentación existente y agregar ejemplos más detallados.
 
-3. **Documentación**: Mejorar la documentación existente y agregar ejemplos más detallados.
+3. **Optimizaciones de rendimiento**: Mejorar el rendimiento en dispositivos de gama baja.
 
 ### Media Prioridad
 
-1. **Optimizaciones de rendimiento**: Mejorar el rendimiento en dispositivos Android de gama baja.
+1. **Validaciones adicionales**: Agregar más validaciones y manejo de casos edge.
 
-2. **Validaciones adicionales**: Agregar más validaciones y manejo de casos edge.
+2. **Soporte para TypeScript**: Mejorar las definiciones de tipos existentes.
 
-3. **Soporte para TypeScript**: Mejorar las definiciones de tipos existentes.
+3. **Funcionalidades adicionales**: Nuevas características relacionadas con el control de brillo.
 
 ## Cómo Contribuir
 
@@ -45,40 +45,11 @@ Actualmente, esta librería **solo soporta Android**. El soporte para iOS aún n
    npm run build
    ```
 
-### Para Contribuir con Soporte iOS
-
-Si quieres trabajar en el soporte para iOS, necesitarás:
-
-1. **Conocimientos requeridos**:
-   - Objective-C o Swift
-   - Desarrollo nativo de iOS
-   - React Native bridge para iOS
-   - Xcode y herramientas de desarrollo de iOS
-
-2. **Estructura esperada**:
-   ```
-   ios/
-   ├── DeviceBrightness.h
-   ├── DeviceBrightness.m (o .swift)
-   └── DeviceBrightness.podspec
-   ```
-
-3. **Funcionalidades a implementar**:
-   - `setBrightnessLevel(level: number)`: Establecer brillo (0.0 - 1.0)
-   - `getBrightnessLevel()`: Obtener brillo actual
-   - Manejo de permisos si es necesario
-   - Validaciones de entrada
-
-4. **Consideraciones importantes**:
-   - iOS tiene limitaciones diferentes a Android para el control de brillo
-   - Algunos dispositivos/versiones pueden tener restricciones
-   - Mantener consistencia en la API con la versión Android
-
 ### Proceso de Pull Request
 
 1. Crea una rama para tu feature:
    ```bash
-   git checkout -b feature/ios-support
+   git checkout -b feature/nueva-funcionalidad
    # o
    git checkout -b fix/descripcion-del-fix
    ```
@@ -97,7 +68,7 @@ Si quieres trabajar en el soporte para iOS, necesitarás:
 
 5. Push a tu fork:
    ```bash
-   git push origin feature/ios-support
+   git push origin feature/nueva-funcionalidad
    ```
 
 6. Abre un Pull Request con:
@@ -117,7 +88,7 @@ Si quieres trabajar en el soporte para iOS, necesitarás:
 
 Aunque actualmente no hay pruebas automatizadas, si agregas funcionalidad nueva:
 
-1. Prueba manualmente en múltiples dispositivos/versiones
+1. Prueba manualmente en múltiples dispositivos/versiones (Android e iOS)
 2. Documenta los casos de prueba realizados
 3. Incluye instrucciones de prueba en tu PR
 
@@ -154,7 +125,3 @@ Todos los contribuidores serán reconocidos en el README y en los release notes.
 ## Licencia
 
 Al contribuir, aceptas que tus contribuciones serán licenciadas bajo la misma licencia MIT del proyecto.
-
----
-
-**Nota especial**: Si estás interesado en trabajar específicamente en el soporte para iOS, por favor contacta primero abriendo un issue para coordinar el trabajo y evitar duplicación de esfuerzos.
