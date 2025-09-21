@@ -1,0 +1,36 @@
+# Excluir artefactos y datos no necesarios del paquete publicado en npm
+
+# Android build outputs y metadatos locales
+android/build/
+android/.gradle/
+android/local.properties
+android/gradle.properties
+android/.idea/
+
+# iOS build outputs y dependencias locales
+ios/build/
+ios/DerivedData/
+ios/Pods/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Ejemplos / tests (si existieran)
+example/
+examples/
+__tests__/
+coverage/
+
+# Archivos de entorno y logs
+.env*
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Archivos de proyecto/IDE
+.vscode/
+.idea/
+
+# Otros archivos que no aportan al paquete
+package-lock.json
+*.md.bak
